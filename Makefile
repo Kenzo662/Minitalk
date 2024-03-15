@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -g -Wall -Wextra -Werror
 
 NAME = server
 
@@ -18,8 +18,8 @@ all     :   $(NAME)
 
 $(NAME) :   $(OBJ) $(OBJ2)
 	$(MAKE) -C libft
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./libft/ -lft
-	$(CC) $(CFLAGS) $(OBJ2) -o $(NAME2) -L./libft/ -lft
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./libft/ -lft 
+	$(CC) $(CFLAGS) $(OBJ2) -o $(NAME2) -L./libft/ -lft 
 clean   :
 	$(MAKE) -C libft clean
 	rm -rf $(OBJ)

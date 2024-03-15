@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klopez <klopez@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/15 16:47:06 by klopez            #+#    #+#             */
+/*   Updated: 2024/03/15 17:21:44 by klopez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	main(void)
@@ -41,9 +53,9 @@ void	handler(int signal, siginfo_t *siginfo, void *s)
 			i = 0;
 			free(str);
 			str = NULL;
+			kill(siginfo->si_pid, SIGUSR1);
 		}
 	}
-	kill(siginfo->si_pid, SIGUSR1);
 }
 
 unsigned char	*str_realloc(unsigned char *str)
